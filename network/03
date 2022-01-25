@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ifconfig en0 | grep 'ether' | cut -d " " -f2
+# in my macbook en0 is the wifi interface (in school may be en1)

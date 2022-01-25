@@ -1,0 +1,7 @@
+#!/bin/sh
+
+get_broadcast_address () { ifconfig -L en0 | grep "inet " | cut -d " " -f6; }
+get_broadcast_address
+arp -a | cut -d " " -f2 | tr -d '()' |
+	grep $(get_broadcast_address | cut -d"." -f1,2,3) |
+	grep -v $(get_broadcast_address)

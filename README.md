@@ -97,13 +97,20 @@ Find the IP that was assigned to you by dhcp server.
 
 > **DHCP** stands for Dynamic Host Configuration Protocol. All machines that belong to a network, are assigned **dynamic IP addresses** by a DHCP server.
 
-* **Script**:  Check `12`.
+* **Script**: Check `12`.
 
 ### Exercise 13
 Thanks to the previous question and the reverse DNS find the name of your host.
 
-* **Explanation**: We just have to use the command-line we wrote in the previous exercise as an argument to `nslookup`.
+* **Explanation**: We just have to use the command-line we wrote in the previous exercise as an argument to `nslookup` (it will only work if the network has set up a **reverse DNS lookup** or [rDNS](https://en.wikipedia.org/wiki/Reverse_DNS_lookup) for short).
 
 > `networksetup -getcomputername` and `hostname` are easy ways of getting the name of our host.
 
 * **Script**:  Check `13`.
+
+### Exercise 14
+What file contains the local DNS entries?
+
+* **Explanation**: The [hosts file](https://en.wikipedia.org/wiki/Hosts_(file)) is where the system maps **hostnames** to **IP addresses**. In Linux/Unix systems it's located in the `/etc` folder, hence the **full path** to this file is `/etc/hosts`.
+
+* **Script**: **NO SCRIPT**. Check file `14` for the **answer**.

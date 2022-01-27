@@ -1,0 +1,3 @@
+#!/bin/sh
+
+netstat -r | grep 'en0' | awk '/default/ { print $2 }'

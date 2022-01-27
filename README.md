@@ -67,3 +67,10 @@ Find the provider of who.int
 * **Explanation**: We first use the `nslookup` command to get the IP address of the who.int hostname. Then we feed that IP to the `whois` command. Finally, we add a bit of text processing magic and voila.
 
 * **Script**: Check `08` (it contains the answer in a **comment**).
+
+### Exercise 09
+Find the external IP of 42.fr
+
+* **Explanation**: Basically just using `nslookup` and a bit of text filtering fun (I reused the function of the last exercise).
+
+* **Script**: Check `09`.

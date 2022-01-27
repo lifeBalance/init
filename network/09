@@ -1,0 +1,4 @@
+#!/bin/sh
+
+get_domain_ip () { nslookup 42.fr | sed '/^$/d' | tail -n1 | cut -d" " -f2; }
+get_domain_ip

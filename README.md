@@ -59,4 +59,11 @@ Query an external DNS server on the who.int domain name (ie.: google 8.8.8.8)
 
 * **Explanation**: We can provide `nslookup` with a **second argument**: the **name server** to be used to check a **domain name** given as **first argument** (who.int). Without the second argument, `nslookup` will check the **default name server** (the one configured in `/etc/resolv.conf`).
 
-* **Script**: Check `06`.
+* **Script**: Check `07`.
+
+### Exercise 08
+Find the provider of who.int
+
+* **Explanation**: We first use the `nslookup` command to get the IP address of the who.int hostname. Then we feed that IP to the `whois` command. Finally, we add a bit of text processing magic and voila.
+
+* **Script**: Check `08` (it contains the answer in a **comment**).

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+get_domain_ip () { nslookup who.int | sed '/^$/d' | tail -n1 | cut -d" " -f2; }
+whois "$(get_domain_ip)" | grep "OrgName" | tr -s "[:blank:]" | cut -d" " -f2,3
+
+# Should output the answer: Cloudfare, Inc.

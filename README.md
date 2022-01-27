@@ -114,3 +114,12 @@ What file contains the local DNS entries?
 * **Explanation**: The [hosts file](https://en.wikipedia.org/wiki/Hosts_(file)) is where the system maps **hostnames** to **IP addresses**. In Linux/Unix systems it's located in the `/etc` folder, hence the **full path** to this file is `/etc/hosts`.
 
 * **Script**: **NO SCRIPT**. Check file `14` for the **answer**.
+
+### Exercise 15
+Make the intra.42.fr address reroute to 46.19.122.85
+
+* **Explanation**: To bypass the DNS server, we can add mapping of **hostnames** to **IP addresses** by adding additional lines to the `/etc/hosts` file.
+
+* **Script**: Check file `15`.
+
+> Since we need **superuser** privileges to edit the `/etc/hosts` file, in order to execute the command line in file `15` we would need to run: `sudo sh 15`

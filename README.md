@@ -2,7 +2,7 @@
 System and network administration.
 
 ## Network
-### 01
+### Exercise 01
 **Question**: Get the list of the network interfaces of the machine without displaying any detail
 for these interfaces. Only the list of names.
 
@@ -10,7 +10,7 @@ for these interfaces. Only the list of names.
 
 * **Script**: Check `01`.
 
-### 02
+### Exercise 02
 **Question**: Identify and display the Ethernet interface characteristics:
 (a) Identify broadcast address
 (b) Identify all IP adresses which are part of the same subnet
@@ -25,14 +25,23 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 
 * **Script**: Check `02`. On the script I used a function named `get_broadcast_address` to get the broadcast address of the **ethernet interface** (`en0`). Then used the first **bytes** of this address to filter all the IP addresses in the same **subnet**.
 
-### 03
+### Exercise 03
 **Question**: Identify the MAC address of the Wi-Fi card.
 
 * **Explanation**: Since the school computers have both **ethernet** and **wireless** cards, in this case we need to specify the `en1` interface, `grep` the line with `ethernet`, and filter the second field.
 
 * **Script**: Check `03`.
 
-### 04
+### Exercise 04
 **Question**: Identifiy the default gateway in the routing table.
 
 * **Explanation**: In computer networking, a **routing table**, is a data table stored in a router or a network host that lists the routes to particular network destinations. The routing table contains information about the topology of the network immediately around it. We can use the `netstat` command (short for network statistics) to get information about the network we're connected to. The `-r` flag is used to display the **routing table**, and the **default gateway** is clearly labeled as `default`, so we just have to do a bit of text filtering and done.
+
+* **Script**: Check `04`.
+
+### Exercise 05
+**Question**: Identify the IP address of the DNS that responds to the following url: who.int.
+
+* **Explanation**: A **DNS server** is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases serves to resolve, or translate, those names to IP addresses as requested. The `nslookup` command allows us to query Internet servers for information; if we pass a hostname (in this case `who.int`) as argument it will give us the IP to what that hostname resolves, but also the **Domain Name Server** used to translate the name to the IP. We just have to filter the result a bit to get just the IP address of the DNS.
+
+* **Script**: Check `05`.

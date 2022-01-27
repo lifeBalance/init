@@ -66,6 +66,7 @@ Find the provider of who.int
 
 * **Explanation**: We first use the `nslookup` command to get the IP address of the who.int hostname. Then we feed that IP to the `whois` command. Finally, we add a bit of text processing magic and voila.
 
+> A comfortable way of getting the IP of a domain 
 * **Script**: Check `08` (it contains the answer in a **comment**).
 
 ### Exercise 09
@@ -97,3 +98,12 @@ Find the IP that was assigned to you by dhcp server.
 > **DHCP** stands for Dynamic Host Configuration Protocol. All machines that belong to a network, are assigned **dynamic IP addresses** by a DHCP server.
 
 * **Script**:  Check `12`.
+
+### Exercise 13
+Thanks to the previous question and the reverse DNS find the name of your host.
+
+* **Explanation**: We just have to use the command-line we wrote in the previous exercise as an argument to `nslookup`.
+
+> `networksetup -getcomputername` and `hostname` are easy ways of getting the name of our host.
+
+* **Script**:  Check `13`.

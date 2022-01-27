@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nslookup "$(ipconfig getifaddr en0)"

@@ -74,3 +74,10 @@ Find the external IP of 42.fr
 * **Explanation**: Basically just using `nslookup` and a bit of text filtering fun (I reused the function of the last exercise).
 
 * **Script**: Check `09`.
+
+### Exercise 10
+Identify the network devices between your computer and the who.int domain
+
+* **Explanation**: For that we can use the `traceroute` command, which prints the route that the packets take till the network host.
+
+* **Script**: Check `10`.

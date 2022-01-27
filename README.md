@@ -136,4 +136,11 @@ What command can you use to rename your system?
 
 * **Explanation**: In Linux, the `hostnamectl` command may be used to **query** and **change** the system hostname and related settings.
 
-* **Script**: Check file `2`.
+* **Script**: Check file `02`.
+
+### Exercise 03
+What file has to be modified to make it permanent?
+
+* **Explanation**: That file is `/etc/hostname` which contains the name of the machine, used by applications that run locally. That name can be retrieved by the `hostname` command, and temporarily changed by the `hostnamectl` command.
+
+* **Answer**: Check file `03`.

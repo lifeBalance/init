@@ -1,0 +1,17 @@
+#!/bin/bash
+
+get_current_name ()
+{
+	hostnamectl | grep "Static hostname" | tr -s "[:blank:]" | cut -d" " -f4
+}
+
+set_new_name ()
+{
+	local new_name
+	read -rp "Enter new hostname ('q' to quit) [$(get_current_name)]: " new_name
+	[[ "$new_name" == "q" ]] && return
+	hostnamectl set-hostname "$new_name" # This is the answer!
+	echo "New hostname set to $new_name; relaunch session to see changes."
+	# running hostname should show the new name
+}
+set_new_name

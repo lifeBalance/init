@@ -1,0 +1,7 @@
+We can easily check the version of our Debian with:
+```
+cat /etc/debian_version
+11.2
+```
+
+As the output above shows, my version of Debian is **11.2**.

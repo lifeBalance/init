@@ -52,7 +52,7 @@ you’re using.
 
 * **Explanation**: `resolv.conf` is the name of a a plain-text file used in various operating systems to configure the system's Domain Name System (DNS) resolver. In **macOS** this file is located under the `/etc` folder, hence the **full path** is `/etc/resolv.conf`.
 
-* **Script**: No script was asked, just a file (`06`) with the name mentioned above.
+* **Answer**: No script was asked, just a file (`06`) with the name mentioned above.
 
 ### Exercise 07
 Query an external DNS server on the who.int domain name (ie.: google 8.8.8.8)
@@ -66,8 +66,9 @@ Find the provider of who.int
 
 * **Explanation**: We first use the `nslookup` command to get the IP address of the who.int hostname. Then we feed that IP to the `whois` command. Finally, we add a bit of text processing magic and voila.
 
-> A comfortable way of getting the IP of a domain 
-* **Script**: Check `08` (it contains the answer in a **comment**).
+> A comfortable way of getting the IP of a domain is to google a site such as [hosting checker](https://hostingchecker.com/), but we chose the dark way ;-)
+
+* **Answer**: Check `08` (it contains a script and the answer in a **comment**).
 
 ### Exercise 09
 Find the external IP of 42.fr
@@ -88,7 +89,7 @@ Use the output of the previous command to find the name and IP address of the de
 
 * **Explanation**: From the output of `traceroute who.int` we can deduce that the **first hop** is the **IP** of the device that links our local network and the outside world. We can confirm that checking the **routing tables** using `netstat -rn`.
 
-* **Script**: **NO SCRIPT**. Check file `11` for the **answer**.
+* **Answer**: NO script was asked. Check file `11` for the **answer**.
 
 ### Exercise 12
 Find the IP that was assigned to you by dhcp server.
@@ -123,3 +124,16 @@ Make the intra.42.fr address reroute to 46.19.122.85
 * **Script**: Check file `15`.
 
 > Since we need **superuser** privileges to edit the `/etc/hosts` file, in order to execute the command line in file `15` we would need to run: `sudo sh 15`
+
+## System
+### Exercise 01
+In what file can you find the installed version of your Debian?
+
+* **Answer**: In `/etc/debian_version`
+
+### Exercise 02
+What command can you use to rename your system?
+
+* **Explanation**: In Linux, the `hostnamectl` command may be used to **query** and **change** the system hostname and related settings.
+
+* **Script**: Check file `2`.

@@ -87,4 +87,13 @@ Use the output of the previous command to find the name and IP address of the de
 
 * **Explanation**: From the output of `traceroute who.int` we can deduce that the **first hop** is the **IP** of the device that links our local network and the outside world. We can confirm that checking the **routing tables** using `netstat -rn`.
 
-* **Script**: **NO SCRIPT**. Check file `11` for the answer.
+* **Script**: **NO SCRIPT**. Check file `11` for the **answer**.
+
+### Exercise 12
+Find the IP that was assigned to you by dhcp server.
+
+* **Explanation**: The `ipconfig` command communicates with the IPConfiguration agent to **retrieve** and **set** IP configuration parameters. In this case we need the IP that the DHCP server assigned to the interface that we use to connect to the network. Since we're connected using the **ethernet** interface (cable), we need to use the `getifaddr` to get the IP address of the `en0` interface.
+
+> **DHCP** stands for Dynamic Host Configuration Protocol. All machines that belong to a network, are assigned **dynamic IP addresses** by a DHCP server.
+
+* **Script**:  Check `12`.

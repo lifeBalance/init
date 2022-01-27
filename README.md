@@ -76,8 +76,15 @@ Find the external IP of 42.fr
 * **Script**: Check `09`.
 
 ### Exercise 10
-Identify the network devices between your computer and the who.int domain
+Identify the network devices between your computer and the who.int domain.
 
 * **Explanation**: For that we can use the `traceroute` command, which prints the route that the packets take till the network host.
 
 * **Script**: Check `10`.
+
+### Exercise 11
+Use the output of the previous command to find the name and IP address of the device that makes the link between you (local network) and the outside world.
+
+* **Explanation**: From the output of `traceroute who.int` we can deduce that the **first hop** is the **IP** of the device that links our local network and the outside world. We can confirm that checking the **routing tables** using `netstat -rn`.
+
+* **Script**: **NO SCRIPT**. Check file `11` for the answer.

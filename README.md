@@ -42,7 +42,7 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 ### Exercise 05
 **Question**: Identify the IP address of the DNS that responds to the following url: who.int.
 
-* **Explanation**: A **DNS server** is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases serves to resolve, or translate, those names to IP addresses as requested. The `nslookup` command allows us to query Internet servers for information; if we pass a hostname (in this case `who.int`) as argument it will give us the IP to what that hostname resolves, but also the **Domain Name Server** used to translate the name to the IP. We just have to filter the result a bit to get just the IP address of the DNS.
+* **Explanation**: A **DNS server** is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases serves to resolve, or translate, those **names** to **IP addresses** as requested. The `nslookup` command allows us to query Internet servers for information; if we pass a hostname (in this case `who.int`) as argument it will give us the IP to what that hostname resolves, but also the **Domain Name Server** used to translate the name to the IP. We just have to filter the result a bit to get just the IP address of the DNS.
 
 * **Script**: Check `05`.
 
@@ -52,4 +52,11 @@ you’re using.
 
 * **Explanation**: `resolv.conf` is the name of a a plain-text file used in various operating systems to configure the system's Domain Name System (DNS) resolver. In **macOS** this file is located under the `/etc` folder, hence the **full path** is `/etc/resolv.conf`.
 
-* **Script**: No script was asked.
+* **Script**: No script was asked, just a file (`06`) with the name mentioned above.
+
+### Exercise 07
+Query an external DNS server on the who.int domain name (ie.: google 8.8.8.8)
+
+* **Explanation**: We can provide `nslookup` with a **second argument**: the **name server** to be used to check a **domain name** given as **first argument** (who.int). Without the second argument, `nslookup` will check the **default name server** (the one configured in `/etc/resolv.conf`).
+
+* **Script**: Check `06`.

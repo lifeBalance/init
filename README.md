@@ -45,3 +45,11 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 * **Explanation**: A **DNS server** is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases serves to resolve, or translate, those names to IP addresses as requested. The `nslookup` command allows us to query Internet servers for information; if we pass a hostname (in this case `who.int`) as argument it will give us the IP to what that hostname resolves, but also the **Domain Name Server** used to translate the name to the IP. We just have to filter the result a bit to get just the IP address of the DNS.
 
 * **Script**: Check `05`.
+
+### Exercise 06
+**Question**: Get the complete path of the file that contains the IP address of the DNS server
+you’re using.
+
+* **Explanation**: `resolv.conf` is the name of a a plain-text file used in various operating systems to configure the system's Domain Name System (DNS) resolver. In **macOS** this file is located under the `/etc` folder, hence the **full path** is `/etc/resolv.conf`.
+
+* **Script**: No script was asked.

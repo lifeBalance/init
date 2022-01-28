@@ -144,3 +144,10 @@ What file has to be modified to make it permanent?
 * **Explanation**: That file is `/etc/hostname` which contains the name of the machine, used by applications that run locally. That name can be retrieved by the `hostname` command, and temporarily changed by the `hostnamectl` command.
 
 * **Answer**: Check file `03`.
+
+### Exercise 04
+What command gives you the time since your system was last booted?
+
+* **Explanation**: The `uptime` command-line utility shows how long system has been running.
+
+* **Command**: Check file `04`.

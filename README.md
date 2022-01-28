@@ -190,3 +190,12 @@ What command lets you know who is connected to the System?
 * **Explanation**: The `w` command shows who is logged on and what they are doing, meaning what processes are they running.
 
 * **Command**: Check file `09`.
+
+### Exercise 10
+Name the command that lists the partition tables of drives?
+
+* **Explanation**: The `fdisk` command is the commonly used to manipulate disk partition table. The `-l` (short for `--list`) lists the partition tables for the specified devices and then exit. If no device is specified, those mentioned in `/proc/partitions` (if that file exists) are used.
+
+* **Command**: Check file `10`.
+
+> The `fdisk` command must be run with **superuser** privileges, for example, `sudo fdisk -l`.

@@ -221,3 +221,13 @@ Name the command that find, in real time, currently running processes.
 
 * **Command**: Check file `13`.
 
+### Exercise 14
+Run the ‘tail -f /var/log/syslog‘ command in background.
+
+* **Explanation**: In Debian systems, the `/var/log/syslog` file contains a data log of **all activity** that has taken place in the system. For that reason, the file may grow to a considerable size; the `tail` is used to output the last part of a file (by default the last 10 lines). When we use the `-f` option (short for `--follow`), we'll be *following* all the information being appended to the `/var/log/syslog`. Since that would take over our shell session, we could send it to the **background** adding an `&` at the end of the command.
+
+> We need **superuser** privileges to open the `/var/log/syslog` file, so `sudo` needs to be used.
+
+* **Command**: Check file `14`.
+
+> As soon as we send the process to the background, we may still get some output; pressing the **enter** key should make that output dissapear and will bring up our prompt.

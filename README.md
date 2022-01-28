@@ -207,4 +207,11 @@ Name the command that displays the available space left and used on the system i
 
 * **Command**: Check file `11`.
 
-> The `fdisk` command must be run with **superuser** privileges, for example, `sudo fdisk -l`.
+### Exercise 12
+Figure out the exact size of each folder of /var in a humanly understandable way followed by the path of it.
+
+* **Explanation**: The `du` command-line utility displays **disk usage** statistics. The `-h` option produces **human readable** output in **base 10** units (kilobytes, megabytes, etc). The `-s` option (short for `--summarize`) is used to show just a total for each argument. If we want to target only the **subfolders** of `/var` we can use `/var/*` (note the asterisk).
+
+* **Command**: Check file `12`.
+
+> To check the contents of the `/var` folder, we need **superuser** privileges, so we should use `sudo` in this case.

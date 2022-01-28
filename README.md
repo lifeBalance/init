@@ -278,3 +278,12 @@ Now, from the **host** (macOS) we can connect to the **Debian Virtual Machine** 
 ssh javi@127.0.0.1 -p 2222
 
 * **Command**: Check file `17`.
+
+### Exercise 18
+Find the command that kills ssh service.
+
+* **Explanation**: As we mentioned before, the `ps ax` can be grepped for `sshd` to get the **PID** of the `ssh` daemon (service), and then use the `kill` command with that **PID**. Another option is to use the `pkill` command, which signal processes by name.
+
+> If we want to make sure, we could run first the `pgrep` command to print the process IDs of all processes that match the criteria given as argument.
+
+* **Command**: Check file `18`.

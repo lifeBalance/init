@@ -151,3 +151,10 @@ What command gives you the time since your system was last booted?
 * **Explanation**: The `uptime` command-line utility shows how long system has been running.
 
 * **Command**: Check file `04`.
+
+### Exercise 05
+Name the command that determines the state of the SSH service.
+
+* **Explanation**: [systemd](https://en.wikipedia.org/wiki/Systemd) is a **service manager** for Linux operating systems. The `systemctl` command is used to control the systemd and service manager. There are a lot of **subcommands** to interact with `systemctl`, being `status` the one to check the state of a given service. That way, to check the **state of a service** (its `status`) we would use: `systemctl status service_name`.
+
+* **Command**: Check file `05`.

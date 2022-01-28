@@ -242,3 +242,10 @@ Find the command that kills the background command’s process.
 Since we're trying to kill a process running in the **background**, the `jobs` command can be used to get the **job identifier** of such background processes, and use that **job id** to send the signal.
 
 * **Command**: Check file `15`.
+
+### Exercise 16
+Find the service which makes it possible to run specific tasks following a regular schedule.
+
+* **Explanation**: In Unix/Linux systems, `cron` is a command-line utility used to schedule jobs  (commands or shell scripts) to run periodically at fixed times, dates, or intervals. Cron is most suitable for scheduling repetitive tasks. Scheduling one-time tasks can be accomplished using the associated `at` utility. 
+
+* **Deduction**: Check file `16`.

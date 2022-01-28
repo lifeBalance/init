@@ -294,3 +294,16 @@ List all services which are started at boot time and name this kind of services.
 * **Explanation**: Services or [daemons](https://en.wikipedia.org/wiki/Daemon_(computing)) are programs that are usually started when the system boots up, and that run in the background. As we mentioned before, most of Linux based OS have adopted `systemd` to organize and manage their services. In `systemd`, daemons are configured in **unit files**, which are kept in several locations. We could use the `systemctl` command to list all the **units** that are **enabled**, meaning that are started by `systemd` when the system boots.
 
 * **Command**: Check file `19`.
+
+### Exercise 20
+List all existing users on the VM.
+
+* **Explanation**: All user accounts are listed in the `/etc/passwd` file, which contains a line per account. We can easily list users using the `cat` command, then grepping the first field, which contains the **user name**.
+
+> Each line in `/ect/passwd` contain seven fields delimited by colons.
+
+Another way to achieve exactly the same as described above, it's to use the `getenv` command, which can be used to get the contents of the `passwd` database.
+
+> The `/etc/passwd` file is a **text-based database** of information about user accounts.
+
+* **Command**: Check file `20`.

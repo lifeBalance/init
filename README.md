@@ -287,3 +287,10 @@ Find the command that kills ssh service.
 > If we want to make sure, we could run first the `pgrep` command to print the process IDs of all processes that match the criteria given as argument.
 
 * **Command**: Check file `18`.
+
+### Exercise 19
+List all services which are started at boot time and name this kind of services.
+
+* **Explanation**: Services or [daemons](https://en.wikipedia.org/wiki/Daemon_(computing)) are programs that are usually started when the system boots up, and that run in the background. As we mentioned before, most of Linux based OS have adopted `systemd` to organize and manage their services. In `systemd`, daemons are configured in **unit files**, which are kept in several locations. We could use the `systemctl` command to list all the **units** that are **enabled**, meaning that are started by `systemd` when the system boots.
+
+* **Command**: Check file `19`.

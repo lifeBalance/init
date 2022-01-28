@@ -183,3 +183,10 @@ What file contains the RSA keys of systems that are authorized to connect via SS
 > Usually this file is created by the user, so it may not exist by default.
 
 * **Deduction**: Check file `08`.
+
+### Exercise 09
+What command lets you know who is connected to the System?
+
+* **Explanation**: The `w` command shows who is logged on and what they are doing, meaning what processes are they running.
+
+* **Command**: Check file `09`.

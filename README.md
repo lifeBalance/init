@@ -348,3 +348,15 @@ Explain how connect yourself as new user. (With graphic session and ssh session)
 * **Explanation**: it's in the deduction file.
 
 * **Deduction**: Check file `23`.
+
+### Exercise 24
+Find the command that list all packages.
+
+* **Explanation**: Debian uses [APT](https://en.wikipedia.org/wiki/APT_(software)) as a **package manager**. The question seems to refer to the list of **installed packages**:
+```
+apt list --installed
+```
+
+> **Listing** packages doesn't require **superuser** privileges; **installing/removing/updating** them do require it, so using `sudo` is in order.
+
+* **Command**: Check file `24`.

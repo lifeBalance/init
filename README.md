@@ -231,3 +231,14 @@ Run the ‘tail -f /var/log/syslog‘ command in background.
 * **Command**: Check file `14`.
 
 > As soon as we send the process to the background, we may still get some output; pressing the **enter** key should make that output dissapear and will bring up our prompt.
+
+### Exercise 15
+Find the command that kills the background command’s process.
+
+* **Explanation**: In Unix/Linux systems, the `kill` command is used to **send signals** to processes. The  **default signal** for `kill` is `SIGTERM` or `TERM` (used to stop a background process gracefully). Alternate signals may be specified in three ways: `-9`, `-SIGKILL` or `-KILL` (also `-s KILL`).
+
+> The `kill` command needs the **PID** of the process we want to send a signal. We can get the **PID** of the `tail` processes with `ps ax | grep tail`.
+
+Since we're trying to kill a process running in the **background**, the `jobs` command can be used to get the **job identifier** of such background processes, and use that **job id** to send the signal.
+
+* **Command**: Check file `15`.

@@ -165,3 +165,12 @@ Name the command that reboots the SSH service.
 * **Explanation**: Once more, we just have to use the `systemctl` command, this time with the `restart` subcommand. When starting/stopping/restarting/reloading services we may be asked to authenticate our user.
 
 * **Command**: Check file `06`.
+
+### Exercise 07
+Figure out the PID of the SSHD service.
+
+* **Explanation**: To check the **process ID** of any **running program** (aka process), we could use the `ps` command (short for *process status*) which shows information about active processes. The `ax` flags (without prepending dash `-`) are commonly used to list **all processes**. Then we could `grep` the output to find information about the process we're interested in.
+
+> Another way of checking the **PID** of a process is to check the `/var/run` directory, traditionally used by Linux systems to store volatile information about **running programs** (aka processes). So to check the process id of the `ssh` daemon we could simply cat the contents of the `/var/run/sshd.pid` file.
+
+* **Command**: Check file `07`.

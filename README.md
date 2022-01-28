@@ -21,7 +21,7 @@ In **macOS**, network interfaces start with `en0`, `en1`, and so on. From the na
 
 On systems with both an **ethernet** and **wireless** card, `en0` represents the **ethernet interface** and `en1` the **wireless one**. The **MAC address** is a bit confusingly preceded by the word `ether` for both **wireless** and **ethernet** cards, but that's due to the fact that **Wi-Fi** and **ethernet** both adhere to the **IEEE 802** standard for **local area networks**.
 
-> On systems with just a wireless connection (like my MacBook Air), `en0` represents the **wireless interface**.
+> In case of doubt, the `network -listallhardwareports` command lists all the network interface names along with their **MACs**.
 
 * **Script**: Check `02`. On the script I used a function named `get_broadcast_address` to get the broadcast address of the **ethernet interface** (`en0`). Then used the first **bytes** of this address to filter all the IP addresses in the same **subnet**.
 
@@ -29,6 +29,8 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 **Question**: Identify the MAC address of the Wi-Fi card.
 
 * **Explanation**: Since the school computers have both **ethernet** and **wireless** cards, in this case we need to specify the `en1` interface, `grep` the line with `ethernet`, and filter the second field.
+
+> On systems with just a wireless connection (like my MacBook Air), `en0` represents the **wireless interface**.
 
 * **Script**: Check `03`.
 
@@ -52,7 +54,7 @@ you’re using.
 
 * **Explanation**: `resolv.conf` is the name of a a plain-text file used in various operating systems to configure the system's Domain Name System (DNS) resolver. In **macOS** this file is located under the `/etc` folder, hence the **full path** is `/etc/resolv.conf`.
 
-* **Answer**: No script was asked, just a file (`06`) with the name mentioned above.
+* **Deduction**: No script was asked, just a file (`06`) with the name mentioned above.
 
 ### Exercise 07
 Query an external DNS server on the who.int domain name (ie.: google 8.8.8.8)
@@ -68,14 +70,14 @@ Find the provider of who.int
 
 > A comfortable way of getting the IP of a domain is to google a site such as [hosting checker](https://hostingchecker.com/), but we chose the dark way ;-)
 
-* **Answer**: Check `08` (it contains a script and the answer in a **comment**).
+* **Deduction**: Check `08` (it contains a script and the answer in a **comment**).
 
 ### Exercise 09
 Find the external IP of 42.fr
 
 * **Explanation**: Basically just using `nslookup` and a bit of text filtering fun (I reused the function of the last exercise).
 
-* **Script**: Check `09`.
+* **Command Output**: Check `09`.
 
 ### Exercise 10
 Identify the network devices between your computer and the who.int domain.
@@ -89,7 +91,7 @@ Use the output of the previous command to find the name and IP address of the de
 
 * **Explanation**: From the output of `traceroute who.int` we can deduce that the **first hop** is the **IP** of the device that links our local network and the outside world. We can confirm that checking the **routing tables** using `netstat -rn`.
 
-* **Answer**: NO script was asked. Check file `11` for the **answer**.
+* **Deduction**: Check file `11` for the **answer**.
 
 ### Exercise 12
 Find the IP that was assigned to you by dhcp server.
@@ -107,21 +109,21 @@ Thanks to the previous question and the reverse DNS find the name of your host.
 
 > `networksetup -getcomputername` and `hostname` are easy ways of getting the name of our host.
 
-* **Script**:  Check `13`.
+* **Command Output**:  Check `13`.
 
 ### Exercise 14
 What file contains the local DNS entries?
 
 * **Explanation**: The [hosts file](https://en.wikipedia.org/wiki/Hosts_(file)) is where the system maps **hostnames** to **IP addresses**. In Linux/Unix systems it's located in the `/etc` folder, hence the **full path** to this file is `/etc/hosts`.
 
-* **Script**: **NO SCRIPT**. Check file `14` for the **answer**.
+* **Deduction**: Check file `14` for the **answer**.
 
 ### Exercise 15
 Make the intra.42.fr address reroute to 46.19.122.85
 
 * **Explanation**: To bypass the DNS server, we can add mapping of **hostnames** to **IP addresses** by adding additional lines to the `/etc/hosts` file.
 
-* **Script**: Check file `15`.
+* **Deduction**: Check file `15`.
 
 > Since we need **superuser** privileges to edit the `/etc/hosts` file, in order to execute the command line in file `15` we would need to run: `sudo sh 15`
 
@@ -129,21 +131,23 @@ Make the intra.42.fr address reroute to 46.19.122.85
 ### Exercise 01
 In what file can you find the installed version of your Debian?
 
-* **Answer**: In `/etc/debian_version`
+* **Explanation**: In `/etc/debian_version`; self-explanatory.
+
+* **Deduction**: Check file `02`.
 
 ### Exercise 02
 What command can you use to rename your system?
 
 * **Explanation**: In Linux, the `hostnamectl` command may be used to **query** and **change** the system hostname and related settings.
 
-* **Script**: Check file `02`.
+* **Command**: Check file `02`.
 
 ### Exercise 03
 What file has to be modified to make it permanent?
 
 * **Explanation**: That file is `/etc/hostname` which contains the name of the machine, used by applications that run locally. That name can be retrieved by the `hostname` command, and temporarily changed by the `hostnamectl` command.
 
-* **Answer**: Check file `03`.
+* **Deduction**: Check file `03`.
 
 ### Exercise 04
 What command gives you the time since your system was last booted?
@@ -249,3 +253,28 @@ Find the service which makes it possible to run specific tasks following a regul
 * **Explanation**: In Unix/Linux systems, `cron` is a command-line utility used to schedule jobs  (commands or shell scripts) to run periodically at fixed times, dates, or intervals. Cron is most suitable for scheduling repetitive tasks. Scheduling one-time tasks can be accomplished using the associated `at` utility. 
 
 * **Deduction**: Check file `16`.
+
+### Exercise 17
+Find the command that allows you to connect via ssh on the VM. (In parallel with the graphic session)
+
+* **Explanation**: In order to connect via `ssh` to our **Debian Virtual Machine**, we'll have to do some work on the **host system** (in my case I'm running Virtual Box on a macOS host). So from **Virtual Box** we have to click on the virtual machine **Settings > Network > Advanced > Por Forwarding**. Once there we have to click the icon to the right (plus sign) to **add a new port forwarding rule**. In that rule we'll add:
+
+	* Name: whatever you want.
+	* Protocol: TCP/IP.
+	* Host IP: 127.0.0.1.
+	* Host Port: 2222.
+	* Guest IP: 10.0.2.15.
+	* Guest Port: 22.
+
+Then, we have to:
+
+	* Install the `ufw` firewall in the **Debian Virtual Machine**: `sudo apt install ufw`
+	* Enable the **firewall**: `sudo ufw enable`
+	* Create a **firewall rule** to allow ssh: `sudo ufw ssh allow`
+	* Get the IP address of the **guest**: Run `ip address` (10.0.2.15)
+
+Now, from the **host** (macOS) we can connect to the **Debian Virtual Machine** running:
+
+ssh javi@127.0.0.1 -p 2222
+
+* **Command**: Check file `17`.

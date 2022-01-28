@@ -327,3 +327,15 @@ getent passwd {1000..6000} | cut -d: -f1
 The `{1000..6000}` is known as **brace expansion** and it's suported by a lot of shells; it expands to all values between 1000 and 6000 (the `UID_MIN` and `UID_MAX` in my system). These values are the numeric keys that `getent` uses to filter the matches from the `passwd` database. Then we just have to `cut` the first field.
 
 * **Command**: Check file `21`.
+
+### Exercise 24
+Find the command that add a new local user.
+
+* **Explanation**: There are a couple of utilities for creating new users in a Linux system:
+
+	* `useradd`, which is a native binary compiled with the system.
+	* `adduser`, which is a Perl script which uses useradd binary in back-end.
+
+The second one is **interactive** and friendlier to use, whereas the first one requires a bit of `man` reading.
+
+> Both of these tools require at least a **username** as argument, and also **superuser** privileges to be run, so `sudo` must be used.

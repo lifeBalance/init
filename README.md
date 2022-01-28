@@ -307,3 +307,23 @@ Another way to achieve exactly the same as described above, it's to use the `get
 > The `/etc/passwd` file is a **text-based database** of information about user accounts.
 
 * **Command**: Check file `20`.
+
+### Exercise 21
+List all real users on the VM.
+
+* **Explanation**: The output of the last command contains **all users accounts** in the system. But some of these accounts exist to manage **services**, and only some of them belong to real users (people).
+
+> Usually, a **real user account** has a real **login shell** and a **home directory**.
+
+Each user has a numeric user ID called **UID** (3rd field of a `passwd` record). Real users are created with a user ID between `UID_MIN` and `UID_MIN`, which are values set in the `/etc/login.defs` file.
+
+> You can check these values running `cat /etc/login.defs | grep UID`.
+
+So to get all **real users** in the system we could run:
+```
+getent passwd {1000..6000} | cut -d: -f1
+```
+
+The `{1000..6000}` is known as **brace expansion** and it's suported by a lot of shells; it expands to all values between 1000 and 6000 (the `UID_MIN` and `UID_MAX` in my system). These values are the numeric keys that `getent` uses to filter the matches from the `passwd` database. Then we just have to `cut` the first field.
+
+* **Command**: Check file `21`.

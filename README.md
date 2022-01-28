@@ -199,3 +199,12 @@ Name the command that lists the partition tables of drives?
 * **Command**: Check file `10`.
 
 > The `fdisk` command must be run with **superuser** privileges, for example, `sudo fdisk -l`.
+
+### Exercise 11
+Name the command that displays the available space left and used on the system in an humanly understandable way.
+
+* **Explanation**: The `df` command-line utility displays statistics about the amount of free disk space on the specified filesystem or on the filesystem of which file is a part. The `-h` and `-H` options both produce **human readable** output. The difference between the two is that `-h` uses **base 2** units (kibibytes, mebibytes, etc), whereas `-H` uses **base 10** units (kilobytes, megabytes, etc).
+
+* **Command**: Check file `11`.
+
+> The `fdisk` command must be run with **superuser** privileges, for example, `sudo fdisk -l`.

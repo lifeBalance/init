@@ -1,0 +1,9 @@
+The question seems to be how to **log in** into the system using the GUI and remotely from a `ssh` session:
+
+1. We just have to boot the system, and use the [display manager](https://en.wikipedia.org/wiki/X_display_manager) (aka **login manager**) to enter our **username** and **password**. Each Linux distro uses their own **login manager**: KDE uses one called **Simple Desktop Display Manager**, in Gnome the one used is named **GDM** (short for Gnome Display Manager).
+
+2. To log in **remotely** into the system using `ssh`, we just have to proceed like in exercise 17:
+```
+ssh username@ip.address -p 22
+```
+Then enter a password, if we're asked for one.

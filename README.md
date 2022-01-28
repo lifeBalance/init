@@ -328,7 +328,7 @@ The `{1000..6000}` is known as **brace expansion** and it's suported by a lot of
 
 * **Command**: Check file `21`.
 
-### Exercise 24
+### Exercise 22
 Find the command that add a new local user.
 
 * **Explanation**: There are a couple of utilities for creating new users in a Linux system:
@@ -339,3 +339,12 @@ Find the command that add a new local user.
 The second one is **interactive** and friendlier to use, whereas the first one requires a bit of `man` reading.
 
 > Both of these tools require at least a **username** as argument, and also **superuser** privileges to be run, so `sudo` must be used.
+
+* **Command**: Check file `22`.
+
+### Exercise 23
+Explain how connect yourself as new user. (With graphic session and ssh session)
+
+* **Explanation**: it's in the deduction file.
+
+* **Deduction**: Check file `23`.

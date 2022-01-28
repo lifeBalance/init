@@ -214,4 +214,10 @@ Figure out the exact size of each folder of /var in a humanly understandable way
 
 * **Command**: Check file `12`.
 
-> To check the contents of the `/var` folder, we need **superuser** privileges, so we should use `sudo` in this case.
+### Exercise 13
+Name the command that find, in real time, currently running processes.
+
+* **Explanation**: The [top command](https://en.wikipedia.org/wiki/Top_(software)) produces an ordered list of running processes and updates it periodically.
+
+* **Command**: Check file `13`.
+

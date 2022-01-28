@@ -158,3 +158,10 @@ Name the command that determines the state of the SSH service.
 * **Explanation**: [systemd](https://en.wikipedia.org/wiki/Systemd) is a **service manager** for Linux operating systems. The `systemctl` command is used to control the systemd and service manager. There are a lot of **subcommands** to interact with `systemctl`, being `status` the one to check the state of a given service. That way, to check the **state of a service** (its `status`) we would use: `systemctl status service_name`.
 
 * **Command**: Check file `05`.
+
+### Exercise 06
+Name the command that reboots the SSH service.
+
+* **Explanation**: Once more, we just have to use the `systemctl` command, this time with the `restart` subcommand. When starting/stopping/restarting/reloading services we may be asked to authenticate our user.
+
+* **Command**: Check file `06`.

@@ -174,3 +174,12 @@ Figure out the PID of the SSHD service.
 > Another way of checking the **PID** of a process is to check the `/var/run` directory, traditionally used by Linux systems to store volatile information about **running programs** (aka processes). So to check the process id of the `ssh` daemon we could simply cat the contents of the `/var/run/sshd.pid` file.
 
 * **Command**: Check file `07`.
+
+### Exercise 08
+What file contains the RSA keys of systems that are authorized to connect via SSH?
+
+* **Explanation**: The `authorized_keys` file in SSH specifies the SSH keys that can be used for logging into the user account for which the file is configured. It is a highly important configuration file, as it configures permanent access using SSH keys and needs proper management. This file can be found under the `$HOME/.ssh` folder.
+
+> Usually this file is created by the user, so it may not exist by default.
+
+* **Deduction**: Check file `08`.

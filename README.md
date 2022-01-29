@@ -360,3 +360,17 @@ apt list --installed
 > **Listing** packages doesn't require **superuser** privileges; **installing/removing/updating** them do require it, so using `sudo` is in order.
 
 * **Command**: Check file `24`.
+
+## Scripting
+### Exercise 1
+Write a script which displays only the login, UID and Path of each entry of the /etc/passwd file.
+
+* **Explanation**: As we mentioned before, the [passwd](https://en.wikipedia.org/wiki/Passwd#Password_file) database contained in the `/etc/passwd` file, organizes each user account information in **records**. Each record is represented by a line, and each line has **7 fields**. For this exercise the three relevant fields are:
+
+	* **Username** aka **login**, in field `1`.
+	* **UID**, in field `3`.
+	* **Path to login shell**, in field `7`.
+
+Since the `/etc/passwd` file usually contains **comments** at the top, instead of `cat` its contents, we used the `getent passwd`, so comments are skipped making easier to filter the content.
+
+* **Script**: Check file `01`.

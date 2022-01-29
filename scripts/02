@@ -1,0 +1,17 @@
+#!/bin/sh
+ 
+if [ "$1" = "$(whoami)" ]
+then
+	printf "Can't delete current user. Quitting...\n"
+	sleep 1
+	exit 1
+elif id -u "$1" > /dev/null 2>&1
+then
+	sudo killall -u "$1"
+	sudo userdel -rf "$1" > /dev/null 2>&1
+	printf "User %s was successfully deleted. Quitting...\n" "$1"
+else
+	printf "User %s doesn't exist. Quitting...\n" "$1"
+	sleep 1
+	exit 1
+fi

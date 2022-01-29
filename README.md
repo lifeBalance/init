@@ -374,3 +374,15 @@ Write a script which displays only the login, UID and Path of each entry of the 
 Since the `/etc/passwd` file usually contains **comments** at the top, instead of `cat` its contents, we used the `getent passwd`, so comments are skipped making easier to filter the content.
 
 * **Script**: Check file `01`.
+
+### Exercise 2
+Write a script which delete an ACTIVE user on the VM.
+
+* **Explanation**: The assignment seems to ask for the deletion of a user who's currently **logged in** into the system, so the first thing we should do is killing all the processes started by that user; otherwise we'd get:
+```
+$ sudo userdel bob
+userdel: user bob is currently used by process 10711
+```
+The other big question to consider is checking that the script can't delete the **current user**, otherwise we could leave the system in an inconsistent state, if the user we're trying to delete is the **last user** in the system.
+
+* **Script**: Check file `02`.

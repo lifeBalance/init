@@ -386,3 +386,10 @@ userdel: user bob is currently used by process 10711
 The other big question to consider is checking that the script can't delete the **current user**, otherwise we could leave the system in an inconsistent state, if the user we're trying to delete is the **last user** in the system.
 
 * **Script**: Check file `02`.
+
+### Exercise 3
+Three’s a Charm. Write a script of you choice.
+
+* **Explanation**: A script I find useful is the one I use to restore my Bash **dotfiles**. I wrote it in a way that can be used accross platforms, Linux and macOS.
+
+* **Script**: Check file `03`.

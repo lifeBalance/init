@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+main ()
+{
+	declare -a files
+	local default_base
+	local default_target
+	local base
+	local target
+
+	default_base="$PWD/Bash/$(uname)"
+	default_target="$HOME"
+
+	read -rp "Enter Base directory ('q' to quit) [${default_base}]: " base
+	[[ "$base" == "q" ]] && return
+	read -rp "Enter Target directory ('q' to quit) [${default_target}]: " target
+	[[ "$target" == "q" ]] && return
+
+	base=${base:=$default_base}
+	target=${target:=$default_target}
+	files=($(ls "$base"))
+
+	if [ -d "${target}" ]
+	then
+		backup_and_restore "${files[@]}"
+	fi
+}
+
+backup_and_restore()
+{
+	declare -a backup_files
+
+	# Populate the 'backup_files' array
+	for file in "${@}"
+	do
+		if [ -f "${HOME}/.${file}" ] && [ ! -L "${HOME}/.${file}" ]
+		then
+			backup_files+=("${HOME}/.${file}")
+			printf "* Found: %s\n" ".${file}"
+		fi
+	done
+	# Create backup of existing files and remove them.
+	printf "* Backing up files:\n" &&	sleep 1
+	if [ -f "${HOME}/bash_dots_backup.tar.gz" ]
+	then
+		printf "Warning: Didn't create a backup file. (there's already one)\n"
+		printf "Quitting...\n"
+		sleep 2
+		exit 0
+	elif [ "${#backup_files[@]}" -gt 0 ]
+	then
+		tar -zcvf "${HOME}/bash_dots_backup.tar.gz" "${backup_files[@]}" 2>/dev/null
+		rm "${backup_files[@]}"
+	else
+		printf "Warning: Didn't create a backup file. (there were no files)\n"
+	fi
+	# Create the symlinks.
+	for file in "${@}"
+	do
+		printf "* Symlinking to: %s\n" "$HOME/.$file"
+		ln -fs "${base}/${file}" "${HOME}/.$file"
+	done
+}
+main "$@"

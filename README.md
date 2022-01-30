@@ -3,12 +3,11 @@ System and network administration.
 
 ## Network
 ### Exercise 01
-**Question**: Get the list of the network interfaces of the machine without displaying any detail
-for these interfaces. Only the list of names.
+**Question**: Get the list of the network interfaces of the machine without displaying any detail for these interfaces. Only the list of names.
 
 * **Explanation**: `ifconfig` (short for interface configuration) is a command-line tool for configuring the **network interface**. It provides a lot of options such as `up` (to enable an interface) or `down` (to disable it). The `-l` flag may be used to **list** all available interfaces on the system by **name**, with no other additional information.
 
-* **Script**: Check `01`.
+* **Command**: Check `01`.
 
 ### Exercise 02
 **Question**: Identify and display the Ethernet interface characteristics:
@@ -23,7 +22,7 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 
 > In case of doubt, the `network -listallhardwareports` command lists all the network interface names along with their **MACs**.
 
-* **Script**: Check `02`. On the script I used a function named `get_broadcast_address` to get the broadcast address of the **ethernet interface** (`en0`). Then used the first **bytes** of this address to filter all the IP addresses in the same **subnet**.
+* **Command**: Check `02`. On the script I used a function named `get_broadcast_address` to get the broadcast address of the **ethernet interface** (`en0`). Then used the first **bytes** of this address to filter all the IP addresses in the same **subnet**.
 
 ### Exercise 03
 **Question**: Identify the MAC address of the Wi-Fi card.
@@ -32,21 +31,27 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 
 > On systems with just a wireless connection (like my MacBook Air), `en0` represents the **wireless interface**.
 
-* **Script**: Check `03`.
+* **Command**: Check `03`.
+
+> It can be done with `ifconfig en1 | grep 'ether' | cut -d " " -f2`, but macOS includes a handy command-line tool named `networksetup` that makes our life easier, if we're on a mac.
 
 ### Exercise 04
 **Question**: Identifiy the default gateway in the routing table.
 
 * **Explanation**: In computer networking, a **routing table**, is a data table stored in a router or a network host that lists the routes to particular network destinations. The routing table contains information about the topology of the network immediately around it. We can use the `netstat` command (short for network statistics) to get information about the network we're connected to. The `-r` flag is used to display the **routing table**, and the **default gateway** is clearly labeled as `default`, so we just have to do a bit of text filtering and done.
 
-* **Script**: Check `04`.
+* **Command**: Check `04`.
+
+> Originally I used `netstat -r | grep 'en0' | awk '/default/ { print $2 }'` but the output was slow; then I changed my answer to a faster command.
 
 ### Exercise 05
 **Question**: Identify the IP address of the DNS that responds to the following url: who.int.
 
 * **Explanation**: A **DNS server** is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases serves to resolve, or translate, those **names** to **IP addresses** as requested. The `nslookup` command allows us to query Internet servers for information; if we pass a hostname (in this case `who.int`) as argument it will give us the IP to what that hostname resolves, but also the **Domain Name Server** used to translate the name to the IP. We just have to filter the result a bit to get just the IP address of the DNS.
 
-* **Script**: Check `05`.
+* **Command**: Check `05`.
+
+> The output could be easily filtered `nslookup who.int | awk 'NR==1 { print $2 }'`
 
 ### Exercise 06
 **Question**: Get the complete path of the file that contains the IP address of the DNS server
@@ -61,7 +66,7 @@ Query an external DNS server on the who.int domain name (ie.: google 8.8.8.8)
 
 * **Explanation**: We can provide `nslookup` with a **second argument**: the **name server** to be used to check a **domain name** given as **first argument** (who.int). Without the second argument, `nslookup` will check the **default name server** (the one configured in `/etc/resolv.conf`).
 
-* **Script**: Check `07`.
+* **Command**: Check `07`.
 
 ### Exercise 08
 Find the provider of who.int
@@ -77,7 +82,9 @@ Find the external IP of 42.fr
 
 * **Explanation**: Basically just using `nslookup` and a bit of text filtering fun (I reused the function of the last exercise).
 
-* **Command Output**: Check `09`.
+* **Command Output**: Check `09`  (I turned my answer into a script).
+
+> Using `route get 42.fr` it's an easy way of finding the external IP of any host.
 
 ### Exercise 10
 Identify the network devices between your computer and the who.int domain.
@@ -100,7 +107,7 @@ Find the IP that was assigned to you by dhcp server.
 
 > **DHCP** stands for Dynamic Host Configuration Protocol. All machines that belong to a network, are assigned **dynamic IP addresses** by a DHCP server.
 
-* **Script**: Check `12`.
+* **Command**: Check `12`.
 
 ### Exercise 13
 Thanks to the previous question and the reverse DNS find the name of your host.
@@ -109,7 +116,7 @@ Thanks to the previous question and the reverse DNS find the name of your host.
 
 > `networksetup -getcomputername` and `hostname` are easy ways of getting the name of our host.
 
-* **Command Output**:  Check `13`.
+* **Command Output**:  Check `13` (I turned my answer into a script).
 
 ### Exercise 14
 What file contains the local DNS entries?

@@ -1,3 +1,1 @@
-#!/bin/sh
-
-ifconfig en1 | grep 'ether' | cut -d " " -f2
+networksetup -getmacaddress Wi-Fi

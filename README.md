@@ -1,5 +1,7 @@
 # init
-System and network administration.
+Introduction subject to System and Network Administration.
+
+![succeded with 100](graded.png "Succeded with 100")
 
 ## Network
 ### Exercise 01
@@ -54,8 +56,7 @@ On systems with both an **ethernet** and **wireless** card, `en0` represents the
 > The output could be easily filtered `nslookup who.int | awk 'NR==1 { print $2 }'`
 
 ### Exercise 06
-**Question**: Get the complete path of the file that contains the IP address of the DNS server
-you’re using.
+**Question**: Get the complete path of the file that contains the IP address of the DNS server you’re using.
 
 * **Explanation**: `resolv.conf` is the name of a a plain-text file used in various operating systems to configure the system's Domain Name System (DNS) resolver. In **macOS** this file is located under the `/etc` folder, hence the **full path** is `/etc/resolv.conf`.
 
@@ -140,7 +141,7 @@ In what file can you find the installed version of your Debian?
 
 * **Explanation**: In `/etc/debian_version`; self-explanatory.
 
-* **Deduction**: Check file `02`.
+* **Deduction**: Check file `01`.
 
 ### Exercise 02
 What command can you use to rename your system?
